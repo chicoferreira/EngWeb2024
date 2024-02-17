@@ -15,4 +15,17 @@ Clicando numa das ruas, acede-se à página individual da rua onde se pode consu
 
 # Resultados
 
-<!--- [Página WEB](./japao.html) -->
+A página principal está disponível em [index.html](./index.html). O resto das páginas das ruas pode ser gerada rodando os comandos:
+
+```
+$ cd TPC1
+$ ./download_dataset.sh
+$ python3 generate.py
+```
+
+Estes comandos também geram o index.html.
+
+## Imagens
+
+<img width="1502" alt="image" src="https://github.com/chicoferreira/EngWeb2024/assets/36338391/0fe3513a-b328-48af-89ec-e7a48d4e3560">
+<img width="1507" alt="image" src="https://github.com/chicoferreira/EngWeb2024/assets/36338391/8120f583-91f3-4253-9c75-70e109a3e6b9">
