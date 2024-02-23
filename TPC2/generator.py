@@ -37,7 +37,7 @@ def get_city_by_id(cities: list[City], city_id: str) -> City | None:
 
 def generate_index_city_item(city: City):
     return f"""
-<div class="flex flex-col pb-3">
+<div class="flex flex-col py-2">
     <a href="/{city.city_id}" class="text-lg font-semibold hover:underline">{city.name}</a>
 </div>"""
 
