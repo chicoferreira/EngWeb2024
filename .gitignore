@@ -1,6 +1,12 @@
 .idea
 
+node_modules
+
 /TPC1/dataset
 /TPC1/ruas
 
 /TPC2/generated
+
+/TPC3/database.json
+/TPC3/package.json
+/TPC3/package-lock.json
