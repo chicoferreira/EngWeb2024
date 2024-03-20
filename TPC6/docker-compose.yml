@@ -1,0 +1,12 @@
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    depends_on:
+      - mongo-seed
+  mongo-seed:
+    image: mongo:latest
+    volumes:
+      - ./compositores.json:/compositores.json
+    command: mongoimport --host mongodb -d TPC6 -c compositores --type json --file /compositores.json --jsonArray
