@@ -1,0 +1,94 @@
+extends layout
+
+block content
+    .w3-container.w3-card.w3-margin
+        if create_new
+            h2 Formulário de Criação de Pessoa
+        else
+            h2 Formulário de Edição de Pessoa
+        form.w3-container(action=post_url, method='post')
+            label(for='_id') BI/CC:
+            input.w3-input(type='text', id='_id', name='_id', value=pessoa._id readonly=!create_new)
+
+            label(for='nome') Nome:
+            input.w3-input(type='text', id='nome', name='nome', value=pessoa.nome)
+
+            label(for='idade') Idade:
+            input.w3-input(type='number', id='idade', name='idade', value=pessoa.idade)
+
+            label(for='sexo') Gênero:
+            select.w3-select(id='sexo', name='sexo')
+                option(value='masculino', selected=pessoa.sexo === 'masculino') Masculino
+                option(value='feminino', selected=pessoa.sexo === 'feminino') Feminino
+                option(value='outro', selected=pessoa.sexo === 'outro') Outro
+
+            label(for='cidade') Cidade:
+            input.w3-input(type='text', id='cidade', name='cidade', value=pessoa.morada.cidade)
+
+            label(for='distrito') Distrito:
+            input.w3-input(type='text', id='distrito', name='distrito', value=pessoa.morada.distrito)
+
+            label(for='descricao') Descrição:
+            textarea.w3-input(id='descricao', name='descricao' rows='4')= pessoa.descrição
+
+            label(for='profissao') Profissão:
+            input.w3-input(type='text', id='profissao', name='profissao', value=pessoa.profissao)
+
+            label(for='partido') Filiação Partidária (Sigla):
+            input.w3-input(type='text', id='partido', name='partido', value=pessoa.partido_politico.party_abbr)
+
+            label(for='partido_nome') Filiação Partidária (Nome):
+            input.w3-input(type='text', id='partido_nome', name='partido_nome', value=pessoa.partido_politico.party_name)
+
+            label(for='religiao') Religião:
+            input.w3-input(type='text', id='religiao', name='religiao', value=pessoa.religiao)
+
+            label(for='desportos') Desportos:
+            input.w3-input(type='text', id='desportos', name='desportos', value=pessoa.desportos.join(', '))
+
+            label(for='animais') Animais:
+            input.w3-input(type='text', id='animais', name='animais', value=pessoa.animais.join(', '))
+
+            label(for='figura_publica_pt') Figuras Públicas (Portugal):
+            input.w3-input(type='text', id='figura_publica_pt', name='figura_publica_pt', value=pessoa.figura_publica_pt.join(', '))
+
+            label(for='marca_carro') Marca do Carro:
+            input.w3-input(type='text', id='marca_carro', name='marca_carro', value=pessoa.marca_carro)
+
+            label(for='destinos_favoritos') Destinos Favoritos:
+            input.w3-input(type='text', id='destinos_favoritos', name='destinos_favoritos', value=pessoa.destinos_favoritos.join(', '))
+
+            label Atributos:
+            ul.w3-ul
+                li
+                    input(type='checkbox', id='fumador', name='fumador', checked=pessoa.atributos.fumador)
+                    label(for='fumador') Fumador
+                li
+                    input(type='checkbox', id='gosta_cinema', name='gosta_cinema', checked=pessoa.atributos.gosta_cinema)
+                    label(for='gosta_cinema') Gosta de Cinema
+                li
+                    input(type='checkbox', id='gosta_viajar', name='gosta_viajar', checked=pessoa.atributos.gosta_viajar)
+                    label(for='gosta_viajar') Gosta de Viajar
+                li
+                    input(type='checkbox', id='acorda_cedo', name='acorda_cedo', checked=pessoa.atributos.acorda_cedo)
+                    label(for='acorda_cedo') Acorda Cedo
+                li
+                    input(type='checkbox', id='gosta_ler', name='gosta_ler', checked=pessoa.atributos.gosta_ler)
+                    label(for='gosta_ler') Gosta de Ler
+                li
+                    input(type='checkbox', id='gosta_musica', name='gosta_musica', checked=pessoa.atributos.gosta_musica)
+                    label(for='gosta_musica') Gosta de Música
+                li
+                    input(type='checkbox', id='gosta_comer', name='gosta_comer', checked=pessoa.atributos.gosta_comer)
+                    label(for='gosta_comer') Gosta de Comer
+                li
+                    input(type='checkbox', id='gosta_animais_estimacao', name='gosta_animais_estimacao', checked=pessoa.atributos.gosta_animais_estimacao)
+                    label(for='gosta_animais_estimacao') Gosta de Animais de Estimação
+                li
+                    input(type='checkbox', id='gosta_dancar', name='gosta_dancar', checked=pessoa.atributos.gosta_dancar)
+                    label(for='gosta_dancar') Gosta de Dançar
+
+            label(for='comida_favorita') Comida Favorita:
+            input.w3-input(type='text', id='comida_favorita', name='comida_favorita', value=pessoa.atributos.comida_favorita)
+
+            button.w3-button(type='submit') Salvar

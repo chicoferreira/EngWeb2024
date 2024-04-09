@@ -3,6 +3,7 @@ const Pessoa = require('../models/pessoa');
 module.exports.list = () => {
     return Pessoa
         .find()
+        .sort({'nome': 1})
         .exec();
 }
 

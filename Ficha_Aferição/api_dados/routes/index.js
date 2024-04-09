@@ -11,6 +11,13 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/:id', (req, res) => {
+    pessoaController.findById(req.params.id).then((pessoa) => {
+        res.json(pessoa);
+        res.end();
+    });
+});
+
 router.post('/', (req, res) => {
     pessoaController.insert(req.body).then((pessoa) => {
         res.json(pessoa);
@@ -19,7 +26,7 @@ router.post('/', (req, res) => {
 });
 
 router.put('/', (req, res) => {
-    pessoaController.update(req.body).then((pessoa) => {
+    pessoaController.update(req.body._id, req.body).then((pessoa) => {
         res.json(pessoa);
         res.end();
     });
@@ -27,6 +34,13 @@ router.put('/', (req, res) => {
 
 router.delete('/', (req, res) => {
     pessoaController.removeById(req.body._id).then((pessoa) => {
+        res.json(pessoa);
+        res.end();
+    });
+});
+
+router.delete('/:id', (req, res) => {
+    pessoaController.removeById(req.params.id).then((pessoa) => {
         res.json(pessoa);
         res.end();
     });

@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    a(href="/novo")
+        button Adicionar
+    .w3-container
+        table.w3-table-all
+            thead
+                tr
+                    th BI/CC
+                    th Nome
+                    th Idade
+                    th Sexo
+                    th Ações
+            tbody
+                each pessoa in pessoas
+                    tr
+                        td
+                            a(href='/pessoa/' + pessoa._id)= pessoa._id
+                        td= pessoa.nome
+                        td= pessoa.idade
+                        td= pessoa.sexo
+                        td
+                            a.w3-button.w3-blue(href='/pessoa/' + pessoa._id + '/editar') Editar
+                            a.w3-button.w3-red(href='/pessoa/' + pessoa._id + '/apagar') Apagar

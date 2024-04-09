@@ -1,0 +1,47 @@
+extends layout
+
+block content
+    .w3-container.w3-card.w3-margin
+        h2 Informações do Usuário
+        ul.w3-ul
+            li BI/CC: #{pessoa._id}
+            li Nome: #{pessoa.nome}
+            li Idade: #{pessoa.idade}
+            li Gênero: #{pessoa.sexo}
+            li Endereço:
+                ul.w3-ul
+                    li Cidade: #{pessoa.morada.cidade}
+                    li Distrito: #{pessoa.morada.distrito}
+            li Descrição: #{pessoa.descrição}
+            li Profissão: #{pessoa.profissao}
+            li Filiação Partidária: #{pessoa.partido_politico.party_abbr} - #{pessoa.partido_politico.party_name}
+            li Religião: #{pessoa.religiao}
+            li Desportos:
+                ul.w3-ul
+                    each sport in pessoa.desportos
+                        li= sport
+            li Animais:
+                ul.w3-ul
+                    each animal in pessoa.animais
+                        li= animal
+            li Figuras Públicas (Portugal):
+                ul.w3-ul
+                    each figure in pessoa.figura_publica_pt
+                        li= figure
+            li Marca do Carro: #{pessoa.marca_carro}
+            li Destinos Favoritos:
+                ul.w3-ul
+                    each destination in pessoa.destinos_favoritos
+                        li= destination
+            li Atributos:
+                ul.w3-ul
+                    li Fumante: #{pessoa.atributos.fumador ? 'Sim' : 'Não'}
+                    li Gosta de Cinema: #{pessoa.atributos.gosta_cinema ? 'Sim' : 'Não'}
+                    li Gosta de Viajar: #{pessoa.atributos.gosta_viajar ? 'Sim' : 'Não'}
+                    li Acorda Cedo: #{pessoa.atributos.acorda_cedo ? 'Sim' : 'Não'}
+                    li Gosta de Ler: #{pessoa.atributos.gosta_ler ? 'Sim' : 'Não'}
+                    li Gosta de Música: #{pessoa.atributos.gosta_musica ? 'Sim' : 'Não'}
+                    li Gosta de Comer: #{pessoa.atributos.gosta_comer ? 'Sim' : 'Não'}
+                    li Gosta de Animais de Estimação: #{pessoa.atributos.gosta_animais_estimacao ? 'Sim' : 'Não'}
+                    li Gosta de Dançar: #{pessoa.atributos.gosta_dancar ? 'Sim' : 'Não'}
+                    li Comida Favorita: #{pessoa.atributos.comida_favorita}
