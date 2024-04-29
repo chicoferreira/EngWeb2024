@@ -1,0 +1,12 @@
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    depends_on:
+      - mongo-seed
+  mongo-seed:
+    image: mongo:latest
+    volumes:
+      - ./uc.json:/uc.json
+    command: mongoimport --host mongodb -d entregas -c uc --type json --file /uc.json --jsonArray
